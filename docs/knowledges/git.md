@@ -1,6 +1,6 @@
 # Git
 
-## オペレーション
+## :point_down: オペレーション
 
 ### 既存のリポジトリを作成
 ```
@@ -24,13 +24,35 @@ $ # 追跡ブランチでプッシュ
 $ git push -u origin feature/branch_name
 ```
 
-### feature を更新
+### feature を実装
+
+#### ブランチを更新
 ```
 $ git fetch -p -t
 $
 $ git checkout feature/branch_name
 $
 $ git pull
+```
+
+#### リソースをコミット
+```
+$ # 修正ファイルをステージに追加
+$ git add .
+$ git status
+$
+$ # ファイルをコミット＆プッシュ
+$ git commit -m "feat: xxxx
+$
+$ Xxxx"
+$
+$ git push origin feature/branch_name
+```
+
+#### 変更をすべて取消
+```
+$ # 一旦元に戻してやり直したい場合
+$ git checkout .
 ```
 
 ### feature を開始元でリベース
@@ -48,31 +70,12 @@ $
 $ git push --force origin HEAD
 ```
 
-### コミット
-```
-$ # 修正ファイルをステージに追加
-$ git add .
-$ git status
-$
-$ # ファイルをコミット＆プッシュ
-$ git commit -m "feat: xxxx
-$
-$ Xxxx"
-$
-$ git push origin feature/branch_name
-```
-
 ### feature を削除
 ```
 $ git branch -D feature/branch_name
 ```
 
-### 変更をすべて取消
-```
-$ git checkout .
-```
-
-## コマンド
+## :memo: コマンド
 
 ### Git Flow
 * `git flow init` 初期化する
