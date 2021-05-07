@@ -15,38 +15,40 @@ $ git flow init -d
 ```
 $ # 開始元のブランチを最新化
 $ git checkout develop
-$ git pull -p -t
+$ git pull -pt --rebase
 $
 $ # feature を開始
 $ git flow feature start branch_name
 $
 $ # 追跡ブランチでプッシュ
-$ git push -u origin feature/branch_name
+$ git push -u origin HEAD
+$ 
+$ git branch -a
 ```
 
 ### feature を実装
 
 #### ブランチを更新
 ```
-$ git fetch -p -t
+$ git fetch -pt
 $
 $ git checkout feature/branch_name
 $
-$ git pull
+$ git pull --rebase
 ```
 
 #### リソースをコミット
 ```
 $ # 修正ファイルをステージに追加
 $ git add .
-$ git status
+$ git status -sb
 $
 $ # ファイルをコミット＆プッシュ
 $ git commit -m "feat: xxxx
 $
 $ Xxxx"
 $
-$ git push origin feature/branch_name
+$ git push origin HEAD
 ```
 
 #### 変更をすべて取消
@@ -59,7 +61,7 @@ $ git checkout .
 ```
 $ # 開始元のブランチを最新化
 $ git checkout develop
-$ git pull -p
+$ git pull -pt --rebase
 $
 $ # feature に切り替え
 $ git checkout feature/branch_name
@@ -67,7 +69,7 @@ $
 $ # feature をリベース＆強制プッシュ
 $ git rebase develop
 $
-$ git push --force origin HEAD
+$ git push -f origin HEAD
 ```
 
 ### feature を削除
@@ -96,7 +98,7 @@ $ git branch -D feature/branch_name
     * `-t` `--tags` リモートのタグをローカルに反映
 	* `--rebase` マージコミットを発生させない
 * `git push origin branch_name` ローカルのファイルをリモートに更新する
-    * `--force` ローカルを強制にリモートに反映
+    * `-f` `--force` ローカルを強制にリモートに反映
 
 ### ブランチ
 * `git branch` ブランチを確認する
