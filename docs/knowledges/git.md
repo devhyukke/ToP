@@ -1,6 +1,6 @@
 # Git
 
-## :point_down: オペレーション
+## :point_down: よくあるオペレーション
 
 ### 既存のリポジトリを作成
 ```
@@ -11,11 +11,15 @@ $ # Git Flow 初期化
 $ git flow init -d
 ```
 
-### feature を開始
+### Git Flow で実施
+
+#### feature 開始
 ```
 $ # 開始元のブランチを最新化
+$ git fetch -pt
+$
 $ git checkout develop
-$ git pull -pt --rebase
+$ git pull --rebase
 $
 $ # feature を開始
 $ git flow feature start branch_name
@@ -26,9 +30,9 @@ $
 $ git branch -a
 ```
 
-### feature を実装
+#### feature 更新
 
-#### ブランチを更新
+##### ブランチを更新
 ```
 $ git fetch -pt
 $
@@ -37,7 +41,7 @@ $
 $ git pull --rebase
 ```
 
-#### リソースをコミット
+##### リソースをコミット
 ```
 $ # 修正ファイルをステージに追加
 $ git add .
@@ -51,17 +55,13 @@ $
 $ git push origin HEAD
 ```
 
-#### 変更をすべて取消
-```
-$ # 一旦元に戻してやり直したい場合
-$ git checkout .
-```
-
-### feature を開始元でリベース
+##### 開始元でリベース
 ```
 $ # 開始元のブランチを最新化
+$ git fetch -pt
+$
 $ git checkout develop
-$ git pull -pt --rebase
+$ git pull --rebase
 $
 $ # feature に切り替え
 $ git checkout feature/branch_name
@@ -72,12 +72,75 @@ $
 $ git push -f origin HEAD
 ```
 
-### feature を削除
+##### 変更をすべて取消
+```
+$ # 一旦元に戻してやり直したい場合
+$ git checkout .
+```
+
+#### feature 削除
 ```
 $ git branch -D feature/branch_name
 ```
 
-## :memo: コマンド
+### GitHub Flow で実施
+
+#### ブランチ作成
+```
+$ # 開始元のブランチを最新化
+$ git fetch -pt
+$
+$ git checkout master
+$ git pull --rebase
+$
+$ # ブランチを作成
+$ git checkout -b branch_name
+$
+$ # 追跡ブランチでプッシュ
+$ git push -u origin HEAD
+$ 
+$ git branch -a
+```
+
+#### ブランチ更新
+
+##### リソースをコミット
+```
+$ # 修正ファイルをステージに追加
+$ git add .
+$ git status -sb
+$
+$ # ファイルをコミット＆プッシュ
+$ git commit -m "feat: xxxx
+$
+$ Xxxx"
+$
+$ git push origin HEAD
+```
+
+##### 開始元でリベース
+```
+$ # 開始元のブランチを最新化
+$ git fetch -pt
+$
+$ git checkout master
+$ git pull --rebase
+$
+$ # ブランチ切り替え
+$ git checkout branch_name
+$
+$ # ブランチをリベース＆強制プッシュ
+$ git rebase master
+$
+$ git push -f origin HEAD
+```
+
+#### ブランチ削除
+```
+$ git branch -D branch_name
+```
+
+## :memo: よく使うコマンド
 
 ### Git Flow
 * `git flow init` 初期化する
