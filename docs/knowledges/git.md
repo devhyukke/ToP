@@ -2,7 +2,7 @@
 
 ## :point_down: よくあるオペレーション
 
-### 既存のリポジトリを作成
+### 既存リポジトリから作成
 ```
 $ # クローン
 $ git clone git@github.com:devhyukke/ToP.git
@@ -11,9 +11,9 @@ $ # Git Flow 初期化
 $ git flow init -d
 ```
 
-### Git Flow で実施
+### 修正を開始
 
-#### feature 開始
+#### Git Flow - feature 開始
 ```
 $ # 開始元のブランチを最新化
 $ git fetch -pt
@@ -30,53 +30,7 @@ $
 $ git branch -a
 ```
 
-#### feature 更新
-
-##### リソースをコミット
-```
-$ # 修正ファイルをステージに追加
-$ git add .
-$ git status -sb
-$
-$ # ファイルをコミット＆プッシュ
-$ git commit -m "feat: xxxx
-$
-$ Xxxx"
-$
-$ git push origin HEAD
-```
-
-##### 開始元でリベース
-```
-$ # 開始元のブランチを最新化
-$ git fetch -pt
-$
-$ git checkout develop
-$ git pull --rebase
-$
-$ # feature に切り替え
-$ git checkout feature/branch_name
-$
-$ # feature をリベース＆強制プッシュ
-$ git rebase develop
-$
-$ git push -f origin HEAD
-```
-
-##### 変更をすべて取消
-```
-$ # 一旦元に戻してやり直したい場合
-$ git checkout .
-```
-
-#### feature 削除
-```
-$ git branch -D feature/branch_name
-```
-
-### GitHub Flow で実施
-
-#### ブランチ作成
+#### GitHub Flow - ブランチ作成
 ```
 $ # 開始元のブランチを最新化
 $ git fetch -pt
@@ -93,9 +47,9 @@ $
 $ git branch -a
 ```
 
-#### ブランチ更新
+### 修正中
 
-##### リソースをコミット
+#### リソースをコミット
 ```
 $ # 修正ファイルをステージに追加
 $ git add .
@@ -109,26 +63,34 @@ $
 $ git push origin HEAD
 ```
 
-##### 開始元でリベース
+#### 開始元でリベース
 ```
 $ # 開始元のブランチを最新化
 $ git fetch -pt
 $
-$ git checkout master
+$ git checkout develop
 $ git pull --rebase
 $
-$ # ブランチ切り替え
-$ git checkout branch_name
+$ # feature に切り替え
+$ git checkout feature/branch_name
 $
-$ # ブランチをリベース＆強制プッシュ
-$ git rebase master
+$ # feature をリベース＆強制プッシュ
+$ git rebase develop
 $
 $ git push -f origin HEAD
 ```
 
+#### 変更をすべて取消
+```
+$ # 一旦元に戻してやり直したい場合
+$ git checkout .
+```
+
+### 修正を完了
+
 #### ブランチ削除
 ```
-$ git branch -D branch_name
+$ git branch -D feature/branch_name
 ```
 
 ## :memo: よく使うコマンド
