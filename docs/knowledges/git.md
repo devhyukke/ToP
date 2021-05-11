@@ -32,15 +32,6 @@ $ git branch -a
 
 #### feature 更新
 
-##### ブランチを更新
-```
-$ git fetch -pt
-$
-$ git checkout feature/branch_name
-$
-$ git pull --rebase
-```
-
 ##### リソースをコミット
 ```
 $ # 修正ファイルをステージに追加
