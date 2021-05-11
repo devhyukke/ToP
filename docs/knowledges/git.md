@@ -16,10 +16,8 @@ $ git flow init -d
 #### Git Flow - feature 開始
 ```
 $ # 開始元のブランチを最新化
-$ git fetch -pt
-$
 $ git checkout develop
-$ git pull --rebase
+$ git pull -pt --rebase
 $
 $ # feature を開始
 $ git flow feature start branch_name
@@ -33,10 +31,8 @@ $ git branch -a
 #### GitHub Flow - ブランチ作成
 ```
 $ # 開始元のブランチを最新化
-$ git fetch -pt
-$
 $ git checkout master
-$ git pull --rebase
+$ git pull -pt --rebase
 $
 $ # ブランチを作成
 $ git checkout -b branch_name
@@ -66,15 +62,13 @@ $ git push origin HEAD
 #### 開始元でリベース
 ```
 $ # 開始元のブランチを最新化
-$ git fetch -pt
-$
 $ git checkout develop
-$ git pull --rebase
+$ git pull -pt --rebase
 $
-$ # feature に切り替え
+$ # ブランチ切り替え
 $ git checkout feature/branch_name
 $
-$ # feature をリベース＆強制プッシュ
+$ # ブランチをリベース＆強制プッシュ
 $ git rebase develop
 $
 $ git push -f origin HEAD
@@ -108,7 +102,7 @@ $ git branch -D feature/branch_name
 * `git fetch` リモートのファイルをローカルの追跡ブランチに取得する
     * `-p` `--prune` リモードの無くなったブランチをローカルにも反映
     * `-t` `--tags` リモートのタグをローカルに反映
-	* `-a` `--all` すべてを取得
+	* `--all` すべてを取得
 * `git pull [origin] [branch_name]` リモートのファイルをローカルの作業ブランチに取得する
     * `-p` `--prune` リモートの無くなったブランチをローカルにも反映
     * `-t` `--tags` リモートのタグをローカルに反映
